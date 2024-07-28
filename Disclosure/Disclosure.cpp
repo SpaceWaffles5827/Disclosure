@@ -25,9 +25,10 @@ void log(const char* key, std::ofstream& logfile) {
 }
 
 void log_and_send(const std::string& key, std::ofstream& logfile) {
-    log(key.c_str(), logfile);
+    std::string message = key + "\n"; // Append newline character
+    log(message.c_str(), logfile);
     try {
-        int sent = send(tcp_socket, key.c_str(), key.size(), 0);
+        int sent = send(tcp_socket, message.c_str(), message.size(), 0);
         if (sent == SOCKET_ERROR) {
             std::cerr << "TCP Send Error: " << WSAGetLastError() << std::endl;
         }
