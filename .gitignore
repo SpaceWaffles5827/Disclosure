@@ -363,3 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 Disclosure/config.h
+
+Disclosure/keylog.txt
